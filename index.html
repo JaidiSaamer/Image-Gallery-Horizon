@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumin Gallery</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="gallery-header">
+        <div class="title-group">
+          <p class="eyebrow">Curated visual collection</p>
+          <h1>Lumin Gallery</h1>
+        </div>
+
+        <div class="gallery-tools" aria-label="Gallery controls">
+          <label class="search-field">
+            <span class="sr-only">Search images</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="m21 21-4.35-4.35m1.35-5.15a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+            </svg>
+            <input id="searchInput" type="search" placeholder="Search images" autocomplete="off" />
+          </label>
+        </div>
+      </header>
+
+      <nav class="filter-bar" aria-label="Filter gallery by category">
+        <button class="filter-button active" type="button" data-filter="all">All</button>
+        <button class="filter-button" type="button" data-filter="nature">Nature</button>
+        <button class="filter-button" type="button" data-filter="architecture">Architecture</button>
+        <button class="filter-button" type="button" data-filter="travel">Travel</button>
+        <button class="filter-button" type="button" data-filter="people">People</button>
+      </nav>
+
+      <section class="gallery-grid" id="galleryGrid" aria-live="polite"></section>
+      <p class="empty-state" id="emptyState" hidden>No images match your search.</p>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="icon-button close-button" type="button" id="closeLightbox" aria-label="Close preview">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <button class="icon-button nav-button prev-button" type="button" id="prevImage" aria-label="Previous image">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+
+      <figure class="lightbox-panel">
+        <img id="lightboxImage" alt="" />
+        <figcaption class="lightbox-caption">
+          <span id="lightboxTitle"></span>
+          <span id="lightboxMeta"></span>
+        </figcaption>
+      </figure>
+
+      <button class="icon-button nav-button next-button" type="button" id="nextImage" aria-label="Next image">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
